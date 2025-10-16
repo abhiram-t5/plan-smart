@@ -1,39 +1,49 @@
-import { Button } from '@/components/ui/button'
-import { HeroVideoDialog } from '@/components/ui/hero-video-dialog'
-import { Textarea } from '@/components/ui/textarea'
-import { ArrowDown, Globe2, Landmark, Plane, Send } from 'lucide-react'
-// import { useRouter } from 'next/navigation'
-// import { useUser } from '@clerk/nextjs'
+"use client";
+import { Button } from "@/components/ui/button";
+import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
+import { Textarea } from "@/components/ui/textarea";
+import { ArrowDown, Globe2, Landmark, Plane, Send } from "lucide-react";
+import { useRouter } from "next/navigation";
+import { useUser } from "@clerk/nextjs";
 
-import React from 'react'
+import React from "react";
 
-
-export const suggestions=[{
-
-            title: 'Create New Trip',
-            icon:<Globe2 className='text-blue-400 h-5 w-5' />
-        },
-        {
-            title: 'Inspire me where to go',
-            icon:<Plane className='text-green-500 h-5 w-5' />
-        },
-        {
-            title: 'Discover hidden Gems',
-            icon:<Landmark className='text-orange-500 h-5 w-5' />
-        },
-        {
-            title: 'Adventure Destination',
-            icon:<Globe2 className='text-yellow-600 h-5 w-5' />
-        }
-        
-]
+export const suggestions = [
+  {
+    title: "Create New Trip",
+    icon: <Globe2 className="text-blue-400 h-5 w-5" />,
+  },
+  {
+    title: "Inspire me where to go",
+    icon: <Plane className="text-green-500 h-5 w-5" />,
+  },
+  {
+    title: "Discover hidden Gems",
+    icon: <Landmark className="text-orange-500 h-5 w-5" />,
+  },
+  {
+    title: "Adventure Destination",
+    icon: <Globe2 className="text-yellow-600 h-5 w-5" />,
+  },
+];
 export default function Hero() {
+  const { user } = useUser();
+  const router = useRouter();
+  const onSend = () => {
+    if (!user) {
+      router.push("/sign-in");
+      return;
+    }
+    // router.push("/create-new-trip");
+  };
+
   return (
     <div className="mt-24 w-full flex justify-center">
       {/* Content */}
       <div className="max-w-3xl w-full text-center space-y-6 ">
         <h1 className="text-xl md:text-5xl font-bold">
-          Hey, I'm your personal <span className='text-primary'>Trip Planner</span>
+          Hey, I'm your personal{" "}
+          <span className="text-primary">Trip Planner</span>
         </h1>
         <p className="text-lg">
           {" "}
@@ -42,14 +52,19 @@ export default function Hero() {
 
         {/* Input Box */}
         <div>
-            <div className='border rounded-2xl p-4 relative'>
-                <Textarea placeholder='Create a trip for Paris from NewYork'
-                className='w-full h-28 bg-transparent border-none focus-visible:ring-0 shadow-none resize-none'
-                />
-                <Button size={'icon'} className='absolute bottom-6 right-6'>
-                    <Send className='h-4 w-4'/>
-                </Button>
-            </div>
+          <div className="border rounded-2xl p-4 relative">
+            <Textarea
+              placeholder="Create a trip for Paris from NewYork"
+              className="w-full h-28 bg-transparent border-none focus-visible:ring-0 shadow-none resize-none"
+            />
+            <Button
+              size={"icon"}
+              className="absolute bottom-6 right-6"
+              onClick={() => onSend()}
+            >
+              <Send className="h-4 w-4" />
+            </Button>
+          </div>
         </div>
 
         {/* Suggestion List */}
