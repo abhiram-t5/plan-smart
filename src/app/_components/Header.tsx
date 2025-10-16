@@ -23,7 +23,7 @@ function Header() {
     <div className='flex justify-between items-center p-4'>
         {/* Logo */}
         <div className='flex gap-2 items-center'>
-          <Image src={'/logo.svg'} alt='logo' width={30} height={30}/>
+          <Image src={'/logo.svg'} alt='logo' width={30} height={30} className="h-auto"/>
           <h2 className='font-bold text-2xl'>PlanSmart</h2>
         </div>
         {/*Menu Options*/}
