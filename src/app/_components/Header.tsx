@@ -2,10 +2,13 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { api } from "../../../convex/_generated/api";
 import Link from "next/link";
-import { SignInButton, useUser } from "@clerk/nextjs";
+import { SignInButton, UserButton, useUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useTripDetail } from "../provider";
+
+
 
 const menuOptions = [
 	{
@@ -23,6 +26,9 @@ const menuOptions = [
 ];
 
 function Header() {
+	  //@ts-ignore
+	const { tripDetailInfo, setTripDetailInfo } = useTripDetail();
+	const path = usePathname();
 	const { user } = useUser();
 	const router = useRouter();
 	const [isScrolled, setIsScrolled] = useState(false);
@@ -68,21 +74,32 @@ function Header() {
 						</h2>
 					</Link>
 				))}
-			</div>
-			{/* 👤 User Actions */}
-			<div className="flex items-center gap-3">
-				{!user ? (
-					<SignInButton mode="modal">
-						<Button>Get Started</Button>
-					</SignInButton>
-				) : (
-					<>
-						<Link href={"/create-new-trip"}>
-							<Button>Create New Trip</Button>
-						</Link>
-					</>
+				{user && (
+					<Link href={"/my-trips"}>
+						<h2 className="text-lg hover:scale-105 transition-all hover:text-primary">
+							My Trips
+						</h2>
+					</Link>
 				)}
 			</div>
+			<div className="flex gap-5 items-center">
+        {!user ? (
+          <SignInButton mode="modal">
+            <Button>Get Started</Button>
+          </SignInButton>
+        ) : path == "/create-new-trip" ? (
+          <Link href={"/my-trips"}>
+            <Button>My Trips</Button>
+          </Link>
+        ) : (
+          <Link href={"/create-new-trip"}>
+            <Button onClick={() => setTripDetailInfo(null)}>
+              Create New trip
+            </Button>
+          </Link>
+        )}
+        <UserButton />
+      </div>
 		</div>
 	);
 }

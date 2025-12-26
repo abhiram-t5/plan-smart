@@ -34,7 +34,7 @@ export default function Hero() {
       router.push("/sign-in");
       return;
     }
-    // router.push("/create-new-trip");
+    router.push("/create-new-trip");
   };
 
   return (

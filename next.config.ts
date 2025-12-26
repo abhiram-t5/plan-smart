@@ -24,6 +24,8 @@ const nextConfig: NextConfig = {
         hostname: "www.thoughtco.com",
       },
     ],
+
+    domains: ["googleapis.com"],
   },
 };
 

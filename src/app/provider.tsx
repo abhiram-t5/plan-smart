@@ -1,10 +1,15 @@
 "use client";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Header from "./_components/Header";
 import { useMutation } from "convex/react";
+import { api } from "@/../../convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
-import { api } from "@/../convex/_generated/api";
-import { UserDetailContext } from "@/../context/UserDetailContext";
+import { UserDetailContext } from "@/../../context/UserDetailContext";
+import {
+  TripContextType,
+  TripDetailContext,
+} from "@/../../context/TripDetailContext";
+import { TripInfo } from "./create-new-trip/_components/ChatBox";
 
 function Provider({
   children,
@@ -13,6 +18,8 @@ function Provider({
 }>) {
   const CreateUser = useMutation(api.user.CreateNewUser);
   const [userDetail, setUserDetail] = useState<any>();
+  const [tripDetailInfo, setTripDetailInfo] = useState<TripInfo | null>(null);
+
   const { user } = useUser();
 
   useEffect(() => {
@@ -21,7 +28,7 @@ function Provider({
 
   const CreateNewUser = async () => {
     if (user) {
-      //Save new user
+      // Save New User if Not Exist
       const result = await CreateUser({
         email: user?.primaryEmailAddress?.emailAddress ?? "",
         imageUrl: user?.imageUrl,
@@ -30,18 +37,25 @@ function Provider({
       setUserDetail(result);
     }
   };
+
   return (
-    <UserDetailContext.Provider value={{userDetail,setUserDetail}}>
-    <div>
-        <Header/>
-        {children}
-    </div>
+    <UserDetailContext.Provider value={{ userDetail, setUserDetail }}>
+      <TripDetailContext.Provider value={{ tripDetailInfo, setTripDetailInfo }}>
+        <div>
+          <Header />
+          {children}
+        </div>
+      </TripDetailContext.Provider>
     </UserDetailContext.Provider>
   );
 }
 
 export default Provider;
 
-export const useUserDetail=()=>{
+export const useUserDetail = () => {
   return useContext(UserDetailContext);
-}
+};
+
+export const useTripDetail = (): TripContextType | undefined => {
+  return useContext(TripDetailContext);
+};
