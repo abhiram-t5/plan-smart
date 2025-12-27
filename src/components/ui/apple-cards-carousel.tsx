@@ -11,10 +11,10 @@ import {
   IconArrowNarrowRight,
   IconX,
 } from "@tabler/icons-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/src/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image, { ImageProps } from "next/image";
-import { useOutsideClick } from "@/hooks/use-outside-click";
+import { useOutsideClick } from "@/src/hooks/use-outside-click";
 
 // ✅ Fix 1: Use React.ReactNode instead of JSX.Element
 interface CarouselProps {

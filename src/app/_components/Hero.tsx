@@ -1,7 +1,7 @@
 "use client";
-import { Button } from "@/components/ui/button";
-import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/src/components/ui/button";
+import { HeroVideoDialog } from "@/src/components/ui/hero-video-dialog";
+import { Textarea } from "@/src/components/ui/textarea";
 import { ArrowDown, Globe2, Landmark, Plane, Send } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";

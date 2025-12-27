@@ -1,13 +1,11 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import { Timeline } from "@/components/ui/timeline";
+import { Timeline } from "@/src/components/ui/timeline";
 import Image from 'next/image';
-import { ArrowLeft, Clock, ExternalLink, Star, Ticket, Timer, Wallet } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
+import { ArrowLeft } from 'lucide-react';
 import HotelCardItem from './HotelCardItem';
 import PlaceCardItem from './PlaceCardItem';
-import { useTripDetail } from '@/app/provider';
+import { useTripDetail } from '@/src/app/provider';
 import { TripInfo } from './ChatBox';
 // const TRIP_DATA = {
 //     "destination": "Goa, India",

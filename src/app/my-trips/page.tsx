@@ -1,6 +1,6 @@
 "use client"
-import { Button } from '@/components/ui/button';
-import { api } from '@/../convex/_generated/api';
+import { Button } from '@/src/components/ui/button';
+import { api } from '@/convex/_generated/api';
 import { useConvex } from 'convex/react';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'

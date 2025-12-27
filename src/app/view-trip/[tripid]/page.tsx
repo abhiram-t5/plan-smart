@@ -1,9 +1,9 @@
 "use client"
 // import GlobalMap from '@/app/create-new-trip/_components/GlobalMap';
-import Itinerary from '@/app/create-new-trip/_components/Itinerary';
-import { Trip } from '@/app/my-trips/page';
-import { useTripDetail, useUserDetail } from '@/app/provider';
-import { api } from '@/../convex/_generated/api';
+import Itinerary from '@/src/app/create-new-trip/_components/Itinerary';
+import { Trip } from '@/src/app/my-trips/page';
+import { useTripDetail, useUserDetail } from '@/src/app/provider';
+import { api } from '@/convex/_generated/api';
 import { useConvex } from 'convex/react';
 import { useParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'

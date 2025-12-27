@@ -1,5 +1,5 @@
 import React from "react";
-import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
+import { Carousel, Card } from "@/src/components/ui/apple-cards-carousel";
 
 export function PopularCityList() {
   const cards = data.map((card, index) => (

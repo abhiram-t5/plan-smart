@@ -1,7 +1,7 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/src/components/ui/button";
+import { Textarea } from "@/src/components/ui/textarea";
 import axios from "axios";
 import { Loader, Send } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
@@ -11,8 +11,8 @@ import BudgetUi from "./BudgetUi";
 import SelectDays from "./SelectDaysUi";
 import FinalUi from "./FinalUi";
 import { useMutation } from "convex/react";
-import { api } from "@/../../convex/_generated/api";
-import { useTripDetail, useUserDetail } from "@/app/provider";
+import { api } from "@/convex/_generated/api";
+import { useTripDetail, useUserDetail } from "@/src/app/provider";
 import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/navigation";
 

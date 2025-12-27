@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth, currentUser } from "@clerk/nextjs/server";
-import { aj } from "@/utils/arcjet";
-import { generateWithGemini } from "@/utils/gemini";
+import { aj } from "@/src/utils/arcjet";
+import { generateWithGemini } from "@/src/utils/gemini";
 
 const PROMPT = `You are an AI Trip Planner Agent. Your goal is to help the user plan a trip by **asking one relevant trip-related question at a time**.
 

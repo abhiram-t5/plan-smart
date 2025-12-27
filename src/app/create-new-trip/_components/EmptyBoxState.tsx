@@ -1,4 +1,4 @@
-import { suggestions } from '@/app/_components/Hero'
+import { suggestions } from '@/src/app/_components/Hero'
 import React from 'react'
 
 function EmptyBoxState({ onSelectOption }: any) {

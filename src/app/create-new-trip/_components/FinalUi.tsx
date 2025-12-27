@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/button'
+import { Button } from '@/src/components/ui/button'
 import { Globe2 } from 'lucide-react'
 import Link from 'next/link'
 import React from 'react'

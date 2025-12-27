@@ -3,7 +3,7 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { Hotel } from './ChatBox'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
+import { Button } from '@/src/components/ui/button'
 import { Star, Wallet } from 'lucide-react'
 import axios from 'axios'
 

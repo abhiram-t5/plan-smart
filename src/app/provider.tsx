@@ -2,13 +2,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import Header from "./_components/Header";
 import { useMutation } from "convex/react";
-import { api } from "@/../../convex/_generated/api";
+import { api } from "@/convex/_generated/api";
 import { useUser } from "@clerk/nextjs";
-import { UserDetailContext } from "@/../../context/UserDetailContext";
+import { UserDetailContext } from "@/context/UserDetailContext";
 import {
   TripContextType,
   TripDetailContext,
-} from "@/../../context/TripDetailContext";
+} from "@/context/TripDetailContext";
 import { TripInfo } from "./create-new-trip/_components/ChatBox";
 
 function Provider({
