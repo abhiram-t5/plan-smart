@@ -175,7 +175,6 @@ function Itinerary() {
         }))
 
     ] : [];
-    console.log(tripData);
 
     return (
         <div className="relative w-full h-[83vh] overflow-auto">

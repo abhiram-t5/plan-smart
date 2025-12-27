@@ -29,7 +29,6 @@ function MyTrips() {
             uid: userDetail?._id
         });
         setMyTrips(result);
-        console.log(result);
     }
 
     return (

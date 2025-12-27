@@ -277,14 +277,14 @@ function ChatBox() {
             size="icon"
             onClick={onSend}
             disabled={loading}
-            className="absolute top-[5px] right-[5px] z-10"
+            className="absolute right-[5px] top-1/2 -translate-y-1/2 z-10"
           >
             <Send className="h-4 w-4" />
           </Button>
 
           <Textarea
             placeholder="Start typing here..."
-            className="w-full min-h-[112px] bg-transparent border-none focus-visible:ring-0 shadow-none resize-none pr-12 pt-10"
+            className="w-full min-h-[112px] bg-transparent border-none focus-visible:ring-0 shadow-none resize-none pr-12 pt-4"
             value={userInput}
             onChange={(e) => setUserInput(e.target.value)}
             onKeyDown={(e) => {
